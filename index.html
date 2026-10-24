@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>米站——技术宅，拯救世界</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box
+        }
+
+        body {
+            background-color: rgb(236, 236, 236);
+
+        }
+
+        #top0,
+        .main,
+        .tip6-invite,
+        .tip2-hot {
+            background-color: white;
+
+        }
+
+        #top0 {
+            width: 100%;
+
+            padding: 1rem 2rem 1rem 2rem;
+            position: fixed;
+            top: 0;
+            z-index: 2000;
+            box-shadow: 0 2px 60vw rgb(231, 231, 231);
+
+
+        }
+
+        .top1 {
+
+            display: flex;
+            gap: 4rem;
+            font-size: large;
+        }
+
+        .main0 {
+
+            display: flex;
+            flex-direction: column;
+            max-width: 59vw;
+            margin-top: 6.5rem;
+            gap: 1rem;
+            margin-left: 10vw;
+        }
+
+        .main {
+            line-height: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1vw;
+            padding: 1.5vw;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+        }
+
+        .tip0 {
+
+            display: flex;
+            flex-direction: column;
+            width: 19vw;
+            position: fixed;
+            top: 6.5rem;
+            right: 10vw;
+            gap: 1rem;
+        }
+
+        .top2-position {
+            flex: 1;
+            display: flex;
+            gap: 2vw;
+            align-items: center;
+
+        }
+
+        a:link,
+        a:visited {
+            flex-shrink: 0;
+            color: rgb(70, 177, 247);
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-size: 2.5rem;
+            text-decoration: none;
+            font-weight: 600;
+
+
+        }
+
+
+        .top4-nav {
+            display: flex;
+            flex-grow: 1;
+            justify-content: space-between;
+            align-items: center;
+
+        }
+
+        .top4-nav div {
+            font-size: 20px;
+        }
+
+        .top3-position {
+            display: flex;
+            flex-grow: 1;
+            gap: 2vw;
+
+        }
+
+        .top5-search {
+            flex-grow: 1;
+            min-width: 0;
+            display: flex;
+            align-items: center;
+            height: 2rem;
+            border: 0.1rem solid rgb(99, 141, 249);
+            border-radius: 999px;
+            gap: 0.5rem;
+            padding: 0 0.7rem;
+
+        }
+
+        input {
+            flex: 1;
+            border: none;
+            background: none;
+            min-width: 0;
+
+        }
+
+        input::placeholder {
+            text-align: center;
+            font-style: oblique;
+        }
+
+        .top15-nav {
+            display: flex;
+            margin-left: auto;
+            align-items: center;
+            gap: 2vw;
+
+        }
+
+        .top16 {
+            display: flex;
+        }
+
+        .top18 {
+            width: 3rem;
+            height: 3rem;
+            background-color: rgb(0, 238, 255);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .main div {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 18px;
+        }
+
+        .main8 {
+            display: flex;
+        }
+
+        img {
+            width: 180px;
+            margin-left: auto;
+        }
+
+        .p {
+            display: flex;
+            align-items: center;
+            gap: 1vw;
+
+        }
+
+        .p1 {
+            width: 3rem;
+            height: 3rem;
+            background-color: rgb(253, 223, 115);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .p2 {
+            width: 3rem;
+            height: 3rem;
+            background-color: rgba(152, 1, 1, 0.5);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .p3,
+        .p4 {
+            width: 3rem;
+            height: 3rem;
+            background-color: gray;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .main3-button {
+            display: flex;
+            margin-left: auto;
+            gap: 3vw;
+        }
+
+        button {
+            background: none;
+            border: none;
+            color: rgb(99, 141, 249);
+        }
+
+        button[data-a="like"]::before {
+            content: "▲";
+        }
+
+        .error {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            gap: 2vh;
+            line-height: 2rem;
+        }
+
+        #main10 {
+            background: none;
+            border: 0.1rem solid rgb(99, 141, 249);
+            border-radius: 10px;
+            font-size: medium;
+            padding: 0.5rem;
+        }
+
+        .tip6-invite {
+
+            padding: 1rem;
+
+        }
+
+        .tip1 {
+            display: flex;
+            flex-direction: column;
+        }
+
+        h1 {
+            font-size: 1.8rem;
+            text-shadow: 1px 1px 10px rgba(108, 177, 255, 0.425);
+        }
+
+        .tip4 {
+            text-align: center;
+            line-height: 2.5rem;
+        }
+
+        .tip3:last-child {
+            border: 0.1rem solid rgb(99, 141, 249);
+            border-radius: 10px;
+            font-size: medium;
+            padding: 0.5rem;
+        }
+
+        .tip2-hot {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            padding: 1rem;
+        }
+
+        .tip5 {
+            margin-left: auto;
+            color: darkgray;
+        }
+
+        .tip5::before {
+            content: "↻";
+        }
+
+        .tip {
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-size: larger;
+
+        }
+
+        @media (max-width:945px) {
+            #top0 {
+                padding: 0;
+            }
+
+            .top1 {
+                padding: 1rem;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .top2-position {
+                width: 100%;
+                display: flex;
+                justify-content: space-around;
+                min-width: 0;
+
+
+            }
+
+            .top3-position {
+                min-width: 0;
+                flex-wrap: wrap;
+            }
+
+            .top4-nav {
+                min-width: 0;
+                overflow-x: auto;
+                order: 2;
+                scrollbar-width: none;
+                flex-wrap: nowrap;
+                gap: 2rem;
+            }
+
+            .top4-nav div {
+                flex-shrink: 0;
+                white-space: nowrap;
+            }
+
+            .top5-search {
+                min-width: 0;
+                overflow: hidden;
+
+            }
+
+
+            .top16 {
+                flex-shrink: 0;
+            }
+
+            .top16 svg {
+                display: block;
+            }
+
+            .top15-nav {
+                display: none;
+            }
+
+            .tip0 {
+                display: none;
+            }
+
+            .main0 {
+                margin-left: 0;
+                max-width: none;
+            }
+
+            .main {
+                width: 100%;
+                padding: 1.5vw;
+
+            }
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="justify">
+        <div id="top0">
+            <header class="top1">
+                <div class="top2-position">
+                    <a href="https://www.mihoyo.com">米乎</a>
+                    <div class="top3-position">
+                        <div class="top4-nav">
+                            <div class="top8">关注</div>
+                            <div class="top9">推荐</div>
+                            <div class="top10">热榜</div>
+                            <div class="top11">专栏</div>
+                            <div class="top12">|</div>
+                            <div class="top13">AI Works</div>
+                            <div class="top14">故事</div>
+
+                        </div>
+                        <div class="top5-search">
+                            <input type="text" placeholder="史莱姆大败圣骸兽">
+                            <div class="top16">
+                                <svg width="20" height="20" viewBox="0 0 16 16" fill="rgb(99,141,249)">
+                                    <path fill-rule="evenodd"
+                                        d="M10.218 11.632a5.5 5.5 0 1 1 1.414-1.414l2.075 2.075a1 1 0 0 1-1.414 1.414l-2.075-2.075ZM10.6 7.1a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0Z"
+                                        clip-rule="evenodd"></path> <!--这个是在素材库找的，搓不出来。。。-->
+                                </svg>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+                <div class="top15-nav">
+                    <div class="top6">消息</div>
+                    <div class="top6">私信</div>
+                </div>
+                <div class="top18">
+                    <div class="name">爷</div>
+                </div>
+
+
+            </header>
+
+        </div>
+        <div class="main0">
+            <div class="main">
+                <h2>如何评价原神7.1活动《判测胜券本征》？</h2>
+                <div class="main1-content">
+                    哲平的抚恤金…志琼的补贴…兰那罗们的小金库…水仙十字的遗产…还有一辆列车和派蒙的小金库…太好了，又搞到钱了…这次是最后的机会了，再最后一次，我一定能把输掉的都赢回来…</div>
+                <img src="https://iili.io/nORmQGj.jpg" alt="戒赌">
+                <div class="main8">
+                    <div class="p">
+                        <div class="p1">荧 </div>
+                        <div class="p name">荧</div>
+                    </div>
+                    <div class="main3-button">
+                        <button data-a="like">赞同999k</button>
+                        <button data-a="comment">评论999k</button>
+                        <button data-a="collect">收藏999k</button>
+                    </div>
+                </div>
+            </div>
+            <div class="main">
+                <h2>如何评价莱茵多特？</h2>
+                <div class="main1-content">完全的外行，会不会玩</div>
+                <img src="https://iili.io/nO5PiVp.jpg" alt="躺平">
+                <div class="main8">
+                    <div class="p">
+                        <div class="p2">瓦</div>
+                        <div class="p name">死之执政——若娜瓦</div>
+                    </div>
+                    <div class="main3-button">
+                        <button data-a="like">赞同88k</button>
+                        <button data-a="comment">评论88k</button>
+                        <button data-a="collect">收藏88kk</button>
+                    </div>
+                </div>
+            </div>
+            <div class="main">
+                <h2>如何评价崩铁×zzz联动知更鸟、卡芙卡的立绘？</h2>
+                <div class="main1-content">谢邀，简直是双倍的妈妈。</div>
+                <img src="https://iili.io/nO56rn2.jpg" alt="这集神了">
+                <div class="main8">
+                    <div class="p">
+                        <div class="p3">星</div>
+                        <div class="p name">星</div>
+                    </div>
+                    <div class="main3-button">
+                        <button data-a="like">赞同11k</button>
+                        <button data-a="comment">评论45k</button>
+                        <button data-a="collect">收藏14k</button>
+                    </div>
+                </div>
+            </div>
+            <div class="main">
+                <h2>如何评价崩坏：星穹铁道铁《镇伏「贪饕」，汇聚愿力》活动？</h2>
+                <div class="main1-content">蛐蛐4000愿力，我几把币战就...什么叫一个人贡献100万愿力？？？</div>
+                <img src="https://iili.io/nOkQo6g.jpg">
+                <div class="main8">
+                    <div class="p">
+                        <div class="p4">穹</div>
+                        <div class="p name">穹</div>
+                    </div>
+                    <div class="main3-button">
+                        <button data-a="like">赞同19k</button>
+                        <button data-a="comment">评论19k</button>
+                        <button data-a="collect">收藏810k</button>
+                    </div>
+                </div>
+            </div>
+            <div class="error">
+                <div class="main9">网络似乎不太顺畅，暂时无法查看更多</div>
+                <button id="main10">重新加载</button>
+                <p>——前方的内容以后再来探索吧——</p>
+            </div>
+        </div>
+        <div class="tip0">
+            <div class="tip6-invite">
+                <div class="tip1">
+                    <h2>创作中心</h2>
+                    <div class="tip4">
+                        <h1>开启你的米乎创作之旅</h1>
+                        <p>分享你的游戏心得</p>
+                    </div>
+                    <button class="tip3">开始创作</button>
+                </div>
+            </div>
+            <div class="tip2-hot">
+                <h2>大家都在看</h2>
+                <div class="tip">1.天蛇船 圣地巡礼<svg t="1792646294135" class="icon" viewBox="0 0 1024 1024" version="1.1"
+                        xmlns="http://www.w3.org/2000/svg" p-id="5335" width="20" height="20">
+                        <path
+                            d="M206.9 348.7c53.2-60.2 95.8-127.2 90.6-200.9-0.5-7.5-0.4-15-0.9-22.4-0.3-3.6 2.4-6.7 6.1-7 2.2-0.1 4.3-0.3 6.4-0.3 160.2 0 290.1 124 290.1 276.9 0 11.5-0.8 22.7-2.3 33.8-0.8 6.1 6.4 9.7 10.8 5.4 46.2-44.6 76.7-103.9 82.8-170.2 0.4-4.6 5.5-7.3 9.7-4.9 106.4 62.5 177.5 174.3 177.5 302.3 0 146.3-92.9 271.9-225.5 326-24 9.8-50.7 11.2-75.7 4-57.3-16.4-111.5-46.7-156.9-90.8-17-16.6-31.8-34.5-44.9-53.2-3-4.4-9.7-3.4-11.3 1.5-13.5 39.1-19.9 79.9-19.3 120.8 0.1 4.8-4.9 8-9.3 5.9-118.5-59.3-199.7-177.5-199.7-314.2 0-76.2 24.1-149.5 67-207.3"
+                            fill="#d81e07" p-id="5336"></path>
+                    </svg></div>
+                <div class="tip">2.龙龙 总冠军<svg t="1792646294135" class="icon" viewBox="0 0 1024 1024" version="1.1"
+                        xmlns="http://www.w3.org/2000/svg" p-id="5335" width="20" height="20">
+                        <path
+                            d="M206.9 348.7c53.2-60.2 95.8-127.2 90.6-200.9-0.5-7.5-0.4-15-0.9-22.4-0.3-3.6 2.4-6.7 6.1-7 2.2-0.1 4.3-0.3 6.4-0.3 160.2 0 290.1 124 290.1 276.9 0 11.5-0.8 22.7-2.3 33.8-0.8 6.1 6.4 9.7 10.8 5.4 46.2-44.6 76.7-103.9 82.8-170.2 0.4-4.6 5.5-7.3 9.7-4.9 106.4 62.5 177.5 174.3 177.5 302.3 0 146.3-92.9 271.9-225.5 326-24 9.8-50.7 11.2-75.7 4-57.3-16.4-111.5-46.7-156.9-90.8-17-16.6-31.8-34.5-44.9-53.2-3-4.4-9.7-3.4-11.3 1.5-13.5 39.1-19.9 79.9-19.3 120.8 0.1 4.8-4.9 8-9.3 5.9-118.5-59.3-199.7-177.5-199.7-314.2 0-76.2 24.1-149.5 67-207.3"
+                            fill="#d81e07" p-id="5336"></path>
+                    </svg></div>
+                <div class="tip">3.如果丘丘王没有遇到莎孚<svg t="1792646294135" class="icon" viewBox="0 0 1024 1024" version="1.1"
+                        xmlns="http://www.w3.org/2000/svg" p-id="5335" width="20" height="20">
+                        <path
+                            d="M206.9 348.7c53.2-60.2 95.8-127.2 90.6-200.9-0.5-7.5-0.4-15-0.9-22.4-0.3-3.6 2.4-6.7 6.1-7 2.2-0.1 4.3-0.3 6.4-0.3 160.2 0 290.1 124 290.1 276.9 0 11.5-0.8 22.7-2.3 33.8-0.8 6.1 6.4 9.7 10.8 5.4 46.2-44.6 76.7-103.9 82.8-170.2 0.4-4.6 5.5-7.3 9.7-4.9 106.4 62.5 177.5 174.3 177.5 302.3 0 146.3-92.9 271.9-225.5 326-24 9.8-50.7 11.2-75.7 4-57.3-16.4-111.5-46.7-156.9-90.8-17-16.6-31.8-34.5-44.9-53.2-3-4.4-9.7-3.4-11.3 1.5-13.5 39.1-19.9 79.9-19.3 120.8 0.1 4.8-4.9 8-9.3 5.9-118.5-59.3-199.7-177.5-199.7-314.2 0-76.2 24.1-149.5 67-207.3"
+                            fill="#d81e07" p-id="5336"></path>
+                    </svg></div>
+                <div class="tip">4.黄泉 景元 饮月加强</div>
+                <div class="tip">5.雷蝎，区</div>
+                <div class="tip">6.冰丘丘王，区</div>
+                <div class="tip">7.崩铁×zzz</div>
+                <div class="tip">8.自选限五怎么选</div>
+                <div class="tip">9.火花神了，爻光拉了</div>
+                <div class="tip">10.爻光神了，火花拉了</div>
+
+                <div class="tip5">换一换</div>
+            </div>
+        </div>
+
+
+
+    </div>
+
+
+
+</body>
+
+</html>
